@@ -79,7 +79,7 @@ export function Details() {
           }
 
           {
-            data.links &&
+            data.tags &&
             <Section title="Marcadores">
             {
               data.tags.map(tag=>(

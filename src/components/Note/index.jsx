@@ -10,11 +10,9 @@ export function Note({data, ...rest}) {
                 data.tags &&
                 <footer>
                     {
-                    data.tags.map(tag=> 
-                    <Tags 
-                    key={tag.id} 
-                    title={tag.name} 
-                    />)
+                    data.tags.map(tag =>(
+                    <Tags key={String(tag.id)} title={tag.name} />
+                    ))
                     }
                 </footer>
             }
