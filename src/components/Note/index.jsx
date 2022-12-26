@@ -7,10 +7,10 @@ export function Note({data, ...rest}) {
             <h1>{data.title}</h1>
 
             {
-                data.tags &&
+                data.noteTags &&
                 <footer>
                     {
-                    data.tags.map(tag =>(
+                        data.noteTags.map(tag =>(
                     <Tags key={String(tag.id)} title={tag.name} />
                     ))
                     }

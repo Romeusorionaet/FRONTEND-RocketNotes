@@ -105,12 +105,6 @@ export function Home() {
                         />
                         ))
                     }
-                    <Note
-                    data={{
-                        title: 'React',
-                        tags: [{id: '1', name: 'react'}]
-                    }}
-                    />
                 </Section>
             </Content>
 
