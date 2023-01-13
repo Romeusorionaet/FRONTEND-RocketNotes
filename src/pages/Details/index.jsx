@@ -11,7 +11,7 @@ import {ButtonText} from '../../components/ButtonText';
 
 export function Details() {
   const [data, setData] = useState([]);
-
+  
   const params = useParams();
   const navigate = useNavigate();
 
