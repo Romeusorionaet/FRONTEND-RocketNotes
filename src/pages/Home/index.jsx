@@ -1,4 +1,5 @@
 import {FiPlus} from 'react-icons/fi';
+import {AiOutlineArrowLeft} from 'react-icons/ai';
 
 import {useNavigate} from 'react-router-dom';
 import {useState, useEffect} from 'react';
@@ -17,6 +18,8 @@ export function Home() {
     const [tags, setTags] = useState([]);
     const [tagsSelected, setTagsSelected] = useState([]);
     const [notes, setNotes] = useState([]);
+
+    const [sidebar, setSidebar] = useState(false);
 
     const navigate = useNavigate();
   
@@ -54,64 +57,76 @@ export function Home() {
         }
         fetchNotes();
     },[tagsSelected, search])
-    
 
+    function handleInput() {
+        setSidebar(!sidebar)
+    }
+    
     return(
         <Container>
-            <Brand>
-                <h1>Rocketseat</h1>
-            </Brand>
+            <div className={sidebar === true ? 'sidebar' : 'wrapper'}>
+                <div className='inputSvg'>
+                    <div>
+                        <input type='checkbox' onClick={handleInput} />
+                        <AiOutlineArrowLeft size='32' className={sidebar === true ? 'rotate180' : ''} />
+                    </div>
+                </div>
+                
+                <Brand>
+                    <h1>Rocketseat</h1>
+                </Brand>
 
-            <Header />
+                <Header />
 
-            <Menu>
-                <ul>
-                    <li><ButtonText 
-                    title="Todos" 
-                    isActive={tagsSelected.length === 0} 
-                    onClick={()=> handleTagSelected("all")} 
-                    />
-                    </li>
-                </ul>
-                {
-                    tags && tags.map(tag => (
-                        <ul key={String(tag.id)}>
-                            <li>
-                                <ButtonText 
-                                title={tag.name}
-                                onClick={()=> handleTagSelected(tag.name)} 
-                                isActive={tagsSelected.includes(tag.name)} 
-                                />
-                            </li>
-                        </ul>
-                    ))
-                }  
-            </Menu>
-
-            <Search>
-                <Input  
-                placeholder="Pesquisar pelo título"
-                onChange={(e) => setSearch(e.target.value)}
-                 />
-            </Search>
-            <Content>
-                <Section title="Minhas notas">
-                    {
-                        notes.map(note=>(
-                        <Note 
-                        key={String(note.id)}
-                        data={note}
-                        onClick={()=> handleDetails(note.id)}
+                <Menu>
+                    <ul>
+                        <li><ButtonText 
+                        title="Todos" 
+                        isActive={tagsSelected.length === 0} 
+                        onClick={()=> handleTagSelected("all")} 
                         />
+                        </li>
+                    </ul>
+                    {
+                        tags && tags.map(tag => (
+                            <ul key={String(tag.id)}>
+                                <li>
+                                    <ButtonText 
+                                    title={tag.name}
+                                    onClick={()=> handleTagSelected(tag.name)} 
+                                    isActive={tagsSelected.includes(tag.name)} 
+                                    />
+                                </li>
+                            </ul>
                         ))
-                    }
-                </Section>
-            </Content>
+                    }  
+                </Menu>
 
-            <NewNote to="/new">
-                <FiPlus />
-                Criar nota
-            </NewNote>
+                <Search>
+                    <Input  
+                    placeholder="Pesquisar pelo título"
+                    onChange={(e) => setSearch(e.target.value)}
+                    />
+                </Search>
+                <Content>
+                    <Section title="Minhas notas">
+                        {
+                            notes.map(note=>(
+                            <Note 
+                            key={String(note.id)}
+                            data={note}
+                            onClick={()=> handleDetails(note.id)}
+                            />
+                            ))
+                        }
+                    </Section>
+                </Content>
+
+                <NewNote to="/new">
+                    <FiPlus />
+                    Criar nota
+                </NewNote>
+            </div>
         </Container>
     )
 }

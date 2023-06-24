@@ -53,7 +53,7 @@ export function Profile() {
         <Container>
             <header>
                 <button type="button" onClick={handleBack}>
-                    <FiArrowLeft />
+                    <FiArrowLeft size='30' />
                 </button>
             </header>
 

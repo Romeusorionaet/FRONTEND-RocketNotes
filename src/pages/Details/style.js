@@ -14,20 +14,26 @@ export const Container = styled.div`
         grid-area: content;
         overflow: scroll;
         padding: 64px 0;
+        overflow-x: hidden;
     }
 `;
 
 export const Links = styled.ul`
+    padding: 10px;
 
-    >li{
-        margin: 12px;
-
-        a{
-            color: ${({theme})=>theme.COLORS.WHITE};
-            text-decoration: none;
-            list-style: none;
+    ul {
+        list-style: none;
+        
+        li{
+            margin-top: 10px;
+            
+            a{
+                color: ${({theme})=>theme.COLORS.WHITE};
+                opacity: .8;
+            }
         }
     }
+
 `;
 
 export const Content = styled.div`
@@ -49,5 +55,9 @@ export const Content = styled.div`
         font-size: 16px;
         margin-top: 16px;
         text-align: justify;
+    }
+
+    @media (max-width: 800px) {
+        padding: 0 30px;
     }
 `;

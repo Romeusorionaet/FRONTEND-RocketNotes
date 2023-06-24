@@ -15,7 +15,7 @@ border-bottom-color: ${({theme})=>theme.COLORS.BACKGROUND_700};
 display: flex;
 justify-content: space-between;
 
-padding: 0 80px;
+padding: 0 60px;
 `;
 
 export const Profile = styled(Link)`

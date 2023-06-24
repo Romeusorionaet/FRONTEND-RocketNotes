@@ -18,24 +18,46 @@ export const Form = styled.form`
 
     text-align: center;
 
-    >h1{
+    .text_top {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .text_top h1{
         font-size: 48px;
         color: ${({theme})=>theme.COLORS.ORANGE};
     }
 
-    >h2{
+    .text_top h2{
         font-size: 24px;
-        margin: 48px 0;
+        margin-bottom: 50px;
     }
 
-    >p{
+    .text_top p{
         font-size: 14px;
         color: ${({theme})=>theme.COLORS.GRAY_100};
     }
 
-    >a{
-        margin-top: 124px;
+    a{
+        margin-top: 50px;
         color: ${({theme})=>theme.COLORS.ORANGE};
+    }
+
+    .wrapper_inputs {
+        width: 100%;
+    }
+
+    @media (max-width: 800px) {
+        padding: 0 50px;
+
+        .text_top h1{
+            font-size: 38px;
+        }
+
+        .text_top h2{
+            font-size: 20px;
+        }
     }
 `;
 

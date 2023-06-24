@@ -39,31 +39,36 @@ export function SignUp() {
         <Container>
              <Background />
             <Form>
-                <h1>Rocket Notes</h1>
-                <p>Aplicação para salvar e gerenciar seus links úteis.</p>
 
-                <h2>Crie sua conta</h2>
+                <div className="text_top">
+                    <h1>Rocket Notes</h1>
+                    <p>Aplicação para salvar e gerenciar seus links úteis.</p>
 
-                <Input 
-                    placeholder="Nome"
-                    type="text"
-                    icon={FiUser}
-                    onChange={e => setName(e.target.value)}
-                />
+                    <h2>Crie sua conta</h2>
+                </div>
 
-                <Input 
-                    placeholder="E-mail"
-                    type="text"
-                    icon={FiMail}
-                    onChange={e => setEmail(e.target.value)} 
-                />
+                <div className="wrapper_inputs">
+                    <Input 
+                        placeholder="Nome"
+                        type="text"
+                        icon={FiUser}
+                        onChange={e => setName(e.target.value)}
+                    />
 
-                <Input 
-                    placeholder="Senha"
-                    type="password"
-                    icon={FiLock}
-                    onChange={e => setPassword(e.target.value)} 
-                />
+                    <Input 
+                        placeholder="E-mail"
+                        type="text"
+                        icon={FiMail}
+                        onChange={e => setEmail(e.target.value)} 
+                    />
+
+                    <Input 
+                        placeholder="Senha"
+                        type="password"
+                        icon={FiLock}
+                        onChange={e => setPassword(e.target.value)} 
+                    />
+                </div>
 
                 <Button title="Cadastrar" onClick={handleSignUp} />
 

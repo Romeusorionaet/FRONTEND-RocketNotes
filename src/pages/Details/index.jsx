@@ -43,60 +43,60 @@ export function Details() {
 
       {
         <main>
-        <Content>
-          <ButtonText 
-          onClick={handleRemove}
-          title="Excluir nota" 
-          />
+          <Content>
+            <ButtonText 
+            onClick={handleRemove}
+            title="Excluir nota" 
+            />
 
-          <h1>
-            {data.title}
-          </h1>
-          <p>
-            {data.description}
-          </p>
+            <h1>
+              {data.title}
+            </h1>
+            <p>
+              {data.description}
+            </p>
 
 
-          {
-            data.links &&
-            <Section title="Links úteis">
-            <Links>
+            {
+              data.links &&
+              <Section title="Links úteis">
+              <Links>
+                {
+                  data.links.map(link=>(
+                  <ul key={String(link.id)}>
+                    <li>
+                      <a 
+                      target="_blank"
+                      href={link.url}>
+                        {link.url}
+                      </a>
+                    </li>
+                  </ul>
+                  ))
+                }
+              </Links>
+            </Section>
+            }
+
+            {
+              data.tags &&
+              <Section title="Marcadores">
               {
-                data.links.map(link=>(
-                <ul key={String(link.id)}>
-                  <li>
-                    <a 
-                    target="_blank"
-                    href={link.url}>
-                      {link.url}
-                    </a>
-                  </li>
-                </ul>
+                data.tags.map(tag=>(
+                  <Tags 
+                  key={String(tag.id)}
+                  title={tag.name}
+                  />
                 ))
               }
-            </Links>
-          </Section>
-          }
-
-          {
-            data.tags &&
-            <Section title="Marcadores">
-            {
-              data.tags.map(tag=>(
-                <Tags 
-                key={String(tag.id)}
-                title={tag.name}
-                 />
-              ))
+              </Section>
             }
-            </Section>
-          }
 
-          <Button 
-          onClick={handleBack}
-          title="Voltar" />
-        </Content>
-      </main>
+            <Button 
+            onClick={handleBack}
+            title="Voltar" />
+          </Content>
+        </main>
       }
     </Container>
   )

@@ -22,6 +22,10 @@ export const Container = styled.div`
         button{
             background: none;
             border: none;
+
+            position: absolute;
+            top: 20px;
+            left: 20px;
         }
     }
 `;

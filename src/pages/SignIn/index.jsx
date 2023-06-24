@@ -26,24 +26,28 @@ export function SignIn() {
     return(
         <Container>
             <Form>
-                <h1>Rocket Notes</h1>
-                <p>Aplicação para salvar e gerenciar seus links úteis.</p>
+                <div className='text_top'>
+                    <h1>Rocket Notes</h1>
+                    <p>Aplicação para salvar e gerenciar seus links úteis.</p>
 
-                <h2>Faça seu login</h2>
+                    <h2>Faça seu login</h2>
+                </div>
 
-                <Input 
-                    placeholder="E-mail"
-                    type="text"
-                    icon={FiMail} 
-                    onChange={e => setEmail(e.target.value)}
-                    />
+                <div className='wrapper_inputs'>
+                    <Input 
+                        placeholder="E-mail"
+                        type="text"
+                        icon={FiMail} 
+                        onChange={e => setEmail(e.target.value)}
+                        />
 
-                <Input 
-                    placeholder="Senha"
-                    type="password"
-                    icon={FiLock} 
-                    onChange={e => setPassword(e.target.value)}
-                    />
+                    <Input 
+                        placeholder="Senha"
+                        type="password"
+                        icon={FiLock} 
+                        onChange={e => setPassword(e.target.value)}
+                        />
+                </div>
 
                 <Button title="Entrar" onClick={handleSignIn} />
 
