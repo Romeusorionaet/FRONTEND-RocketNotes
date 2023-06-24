@@ -56,7 +56,6 @@ export function Details() {
               {data.description}
             </p>
 
-
             {
               data.links &&
               <Section title="Links úteis">

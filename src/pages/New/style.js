@@ -13,6 +13,10 @@ export const Container = styled.div`
     >main{
         grid-area: content;
         overflow-y: auto;
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
     }
 
     .tags{
@@ -23,8 +27,8 @@ export const Container = styled.div`
 `;
 
 export const Form = styled.form`
-    max-width: 550px;
-    padding: 20px;
+    width: 100%;
+    padding: 60px;
 
     >header{
         display: flex;
@@ -37,5 +41,13 @@ export const Form = styled.form`
             font-size:  20px;
             color: ${({theme})=>theme.COLORS.GRAY_100};
         }
+    }
+
+    >button {
+        width: 260px;
+    }
+
+    @media (max-width: 800px) {
+        padding: 20px;
     }
 `;
